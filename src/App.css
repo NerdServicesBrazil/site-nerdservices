@@ -1,0 +1,7 @@
+/*
+ * App.css — sobra do modelo inicial do Vite (classes .counter, .hero, #center,
+ * #next-steps, .ticks…). Nenhuma delas é usada pelo App.jsx: todo o visual
+ * do site está no Tailwind + index.css (identidade v2, 09/10/2026).
+ * Arquivo mantido vazio para não quebrar algum import antigo; pode ser
+ * apagado junto com o "import './App.css'" (se existir no main.jsx).
+ */

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Nerd Services — OmniNerd | Atendimento omnichannel e telefonia</title>
+    <meta name="description" content="Software house de Maceió (AL). O OmniNerd une WhatsApp oficial, telefonia (PABX em nuvem), Telegram, chat do site e Instagram em uma só tela, com IA e CRM nativo." />
+    <meta name="author" content="L. Gustavo Gomes Galvão Tecnologia (Nerd Services)" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://nerdservices.com.br/" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <!-- Fonte da identidade (a mesma do sistema e das artes) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Prévia ao compartilhar o link (WhatsApp, LinkedIn, análise da Meta) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nerd Services" />
+    <meta property="og:title" content="Nerd Services — OmniNerd | Atendimento omnichannel e telefonia" />
+    <meta property="og:description" content="WhatsApp oficial, telefonia, Telegram e chat do site em uma só tela, com IA e CRM nativo." />
+    <meta property="og:url" content="https://nerdservices.com.br/" />
+    <meta property="og:image" content="https://nerdservices.com.br/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+      Identidade da empresa em dados estruturados. O site é um SPA: o HTML
+      entregue pelo servidor vem vazio e só ganha conteúdo depois do JavaScript.
+      Para um humano com navegador isso é transparente, mas rastreadores e
+      verificações automatizadas (inclusive a da Meta) veem página em branco —
+      e não encontram nem o nome da empresa. Este bloco e o <noscript> abaixo
+      resolvem sem precisar migrar para SSR.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "L. Gustavo Gomes Galvão Tecnologia",
+      "alternateName": "Nerd Services",
+      "url": "https://nerdservices.com.br/",
+      "logo": "https://nerdservices.com.br/logo-nerd.png",
+      "email": "gustavo@nerdservices.com.br",
+      "telephone": "+55-82-3142-3700",
+      "taxID": "26.356.334/0001-96",
+      "foundingDate": "2016-10-14",
+      "sameAs": ["https://instagram.com/nerdservicesbr"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. da Vitória, 1270",
+        "addressLocality": "Maceió",
+        "addressRegion": "AL",
+        "postalCode": "57062-009",
+        "addressCountry": "BR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-82-3142-3700",
+        "contactType": "customer service",
+        "email": "gustavo@nerdservices.com.br",
+        "areaServed": "BR",
+        "availableLanguage": ["Portuguese"]
+      }
+    }
+    </script>
+  </head>
+  <body style="background:#0b1220">
+    <div id="root"></div>
+
+    <noscript>
+      <div style="max-width:720px;margin:40px auto;padding:0 20px;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#e8edf5">
+        <h1>Nerd Services — OmniNerd</h1>
+        <p>
+          Software house de Maceió (AL). O <strong>OmniNerd</strong> é uma plataforma SaaS
+          que une WhatsApp oficial, telefonia (PABX em nuvem), Telegram, chat do site e Instagram
+          em uma única tela de atendimento, com Inteligência Artificial e CRM nativo.
+        </p>
+        <p>
+          <strong>L. Gustavo Gomes Galvão Tecnologia</strong> (nome fantasia: Nerd Services)<br />
+          CNPJ 26.356.334/0001-96<br />
+          R. da Vitória, 1270 — Petrópolis, Maceió/AL — CEP 57.062-009<br />
+          Telefone: (82) 3142-3700 / (82) 99828-4515<br />
+          E-mail: <a style="color:#5eead4" href="mailto:gustavo@nerdservices.com.br">gustavo@nerdservices.com.br</a>
+        </p>
+        <p>
+          <a style="color:#5eead4" href="/privacidade">Política de Privacidade</a> ·
+          <a style="color:#5eead4" href="https://omninerd.com.br">Área do Cliente</a>
+        </p>
+        <p><em>Este site precisa de JavaScript para exibir o conteúdo completo.</em></p>
+      </div>
+    </noscript>
+
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- Widget de WebChat OmniNerd -->
+    <script src="https://nerdservices.omninerd.io/api/webchat/public/widget.js" data-key="wc_kzPueiDEB1pOan8d1HtJVmPk" async></script>
+  </body>
+</html>
