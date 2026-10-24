@@ -1,16 +1,34 @@
-# React + Vite
+# site-nerdservices
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Site institucional da Nerd Services — https://nerdservices.com.br
 
-Currently, two official plugins are available:
+Página única que apresenta a empresa e o OmniNerd (atendimento omnichannel com telefonia,
+WhatsApp oficial, Telegram, chat do site e Instagram, com IA e CRM nativo).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- Vite + React + Tailwind CSS 4 (tema no `@theme` de `src/index.css`)
+- Lint: oxlint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Comandos
 
-## Expanding the Oxlint configuration
+```bash
+npm ci          # instala as dependências
+npm run dev     # servidor local de desenvolvimento
+npm run lint    # verifica o código
+npm run build   # gera a pasta dist/
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Estrutura
+
+- `index.html` — SEO, Open Graph, dados estruturados da empresa, conteúdo `<noscript>`
+- `src/App.jsx` — todas as seções do site
+- `src/index.css` — identidade visual (cores, botões, cartões de vidro, animações)
+- `public/` — imagens, logos de clientes e páginas legais (`privacidade/`, `termos/`, `exclusao/`)
+
+## Publicação
+
+O conteúdo de `dist/` é publicado em `/var/www/nerdservices/html/` no servidor.
+
+---
+© Nerd Services® · L. Gustavo Gomes Galvão Tecnologia · CNPJ 26.356.334/0001-96

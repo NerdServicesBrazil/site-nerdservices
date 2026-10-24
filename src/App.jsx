@@ -12,9 +12,20 @@ const WHATS_NUM = '558231423700';
 const WHATS_URL = `https://wa.me/${WHATS_NUM}?text=${encodeURIComponent('Olá! Quero agendar uma demonstração do OmniNerd.')}`;
 const PHONE_FIXO = '(82) 3142-3700';
 const PHONE_CEL = '(82) 99828-4515';
+const WHATS_CEL = '5582998284515';
 const EMAIL = 'gustavo@nerdservices.com.br';
 const INSTAGRAM_URL = 'https://instagram.com/nerdservicesbr';
 const SISTEMA_URL = 'https://omninerd.com.br';
+
+/* FATIA 20261024_AJUSTES — abertura da empresa (CNPJ): 14/10/2016.
+ * Os "anos de mercado" são calculados a partir desta data (anos completos). */
+const FUNDACAO = { ano: 2016, mes: 10, dia: 14 };
+function anosDeMercado(hoje = new Date()) {
+  const fezAniversario =
+    hoje.getMonth() + 1 > FUNDACAO.mes ||
+    (hoje.getMonth() + 1 === FUNDACAO.mes && hoje.getDate() >= FUNDACAO.dia);
+  return hoje.getFullYear() - FUNDACAO.ano - (fezAniversario ? 0 : 1);
+}
 
 const ICONS = {
   'message-circle': ' <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />',
@@ -123,7 +134,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo mista registrada no INPI — mantida (marca registrada) */}
-          <a href="#" className="flex-shrink-0 flex items-center gap-1" aria-label="Nerd Services — início">
+          <a href="/" className="flex-shrink-0 flex items-center gap-1" aria-label="Nerd Services — início">
             <img src="/logo-nerd.png" alt="Nerd Services" className="h-10 w-auto object-contain brightness-0 invert" />
             <span className="text-[10px] text-slate-400 font-bold self-start -ml-1">®</span>
           </a>
@@ -275,7 +286,7 @@ function AboutSection() {
             </h2>
             <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
               <p>
-                A Nerd Services iniciou sua jornada em 2015 resolvendo os gargalos de comunicação das empresas. Durante anos, conectamos
+                A Nerd Services iniciou sua jornada em {FUNDACAO.ano} resolvendo os gargalos de comunicação das empresas. Durante anos, conectamos
                 infraestruturas críticas e PABX para garantir a continuidade dos negócios de nossos clientes.
               </p>
               <p>
@@ -289,7 +300,7 @@ function AboutSection() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-5">
-            {[['+11', 'anos de mercado'], ['100%', 'tecnologia própria'], ['INPI', 'marcas registradas'], ['24h', 'atendimento com IA']].map(([k, t]) => (
+            {[[`+${anosDeMercado()}`, 'anos de mercado'], ['100%', 'tecnologia própria'], ['INPI', 'marcas registradas'], ['24h', 'atendimento com IA']].map(([k, t]) => (
               <div key={t} className="glass rounded-3xl p-7 md:p-8">
                 <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-gradient mb-2">{k}</div>
                 <div className="text-sm md:text-base text-slate-400 font-medium">{t}</div>
@@ -572,7 +583,7 @@ function Footer() {
           <div className="space-y-3 text-slate-300">
             <div className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">Contato</div>
             <a href={`tel:+${WHATS_NUM}`} className="flex items-center gap-3 hover:text-teal-300 transition-colors"><Icon name="phone" className="w-5 h-5 text-teal-300" /> {PHONE_FIXO}</a>
-            <a href="https://wa.me/5582998284515" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-teal-300 transition-colors"><Icon name="message-circle" className="w-5 h-5 text-teal-300" /> {PHONE_CEL}</a>
+            <a href={`https://wa.me/${WHATS_CEL}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-teal-300 transition-colors"><Icon name="message-circle" className="w-5 h-5 text-teal-300" /> {PHONE_CEL}</a>
             <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 hover:text-teal-300 transition-colors break-all"><Icon name="mail" className="w-5 h-5 text-teal-300 shrink-0" /> {EMAIL}</a>
             <div className="flex items-center gap-3"><Icon name="map-pin" className="w-5 h-5 text-teal-300" /> Maceió, AL — Brasil</div>
           </div>
