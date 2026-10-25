@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="34 94 440 440" width="512" height="512" role="img" aria-label="OmniNerd AI">
+  <path d="M58 300 C92 280 130 272 168 276 C196 279 210 266 216 256 M296 256 C304 268 324 274 346 270 C368 266 382 252 404 250 C432 248 452 266 452 292 C452 318 430 332 410 324 C398 319 394 306 402 298 M58 300 C100 304 136 312 160 336 M190 360 C212 380 234 388 256 388 C300 388 340 368 366 336 C376 324 386 314 398 306 M216 256 C220 232 236 222 256 222 C276 222 292 232 296 256" stroke="#2A9276" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="34"/>
+  <path d="M256 166 C268 182 276 194 276 204 C276 214 267 222 256 222 C245 222 236 214 236 204 C236 194 244 182 256 166 Z" stroke="#2A9276" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="28.9"/>
+  <path d="M240 390 L212 436 M272 390 L300 436 M176 440 H336" stroke="#2A9276" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="34"/>
+  <path d="M223.2 361.0 L223.2 279.0 L241.3 279.0 L271.6 331.5 L271.6 279.0 L288.8 279.0 L288.8 361.0 L270.7 361.0 L240.4 308.5 L240.4 361.0 Z" fill="#E7E9EC"/>
+  <circle cx="352" cy="176" r="27.2" fill="#F97316"/>
+</svg>

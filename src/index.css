@@ -1,94 +1,149 @@
 @import "tailwindcss";
 
 /* =============================================================================
-   Identidade v2 (09/10/2026) — a mesma do login do OmniNerd e das artes do
-   Instagram. Verde-água e laranja são as escalas teal/orange do próprio
-   Tailwind (teal-300 #5EEAD4, teal-400 #2DD4BF, teal-500 #14B8A6,
-   teal-700 #0F766E, orange-500 #F97316); aqui só entram o azul-marinho e a fonte.
+   Site Nerd Services — identidade v3 (25/10/2026), direção “Camadas”.
+   Base de marca = padrão Obsidiana do OmniNerd (grafite + verde mineral; laranja só
+   como destaque pontual). A apresentação do site tem profundidade (vidro, brilho,
+   camadas 3D em CSS), sempre com: conteúdo visível sem JavaScript, contraste AA,
+   e movimento desligado em prefers-reduced-motion.
    ============================================================================= */
 @theme {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --color-navy-950: #0b1220;
-  --color-navy-900: #111a2e;
-  --color-navy-800: #1a2540;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --color-g-950: #0f1114; /* fundo */
+  --color-g-900: #16191d; /* superfície */
+  --color-g-850: #1c2025; /* superfície 2 */
+  --color-g-800: #23282e; /* superfície 3 */
+  --color-g-line: #2a2f36; /* borda */
+  --color-g-line2: #383e46;
+  --color-g-line3: #4a515b;
+  --color-tx: #e7e9ec;
+  --color-tx2: #aab0b8;
+  --color-tx3: #8b929c;
+  --color-brand: #2a9276; /* verde mineral */
+  --color-brand-d: #1f7a63;
+  --color-brand-l: #4fc3a1; /* só para brilho e destaque em texto */
+  --color-accent: #f97316; /* laranja: destaque pontual */
 }
 
-html { scroll-behavior: smooth; }
-body { background: #0b1220; }
+html { scroll-behavior: smooth; background: var(--color-g-950); color-scheme: dark; }
+body { background: var(--color-g-950); color: var(--color-tx); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.num { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-mono); }
+:focus-visible { outline: 2px solid var(--color-brand-l); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--color-brand); color: #fff; }
 
-/* Destaque em degradê verde-água (títulos) */
-.text-gradient {
-  background: linear-gradient(120deg, #5eead4, #14b8a6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+/* ---------- Tipografia ---------- */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-brand-l); display: inline-flex; align-items: center; gap: 8px; }
+.eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); flex: none; }
+.h-sec { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; font-weight: 650; letter-spacing: -.02em; }
+.lead { color: var(--color-tx2); font-size: 17px; line-height: 1.65; }
+.hl { color: var(--color-brand-l); }
 
-/* Botão principal: único elemento com brilho permanente (igual ao login) */
-.btn-primary {
-  border-radius: 1rem;
-  font-weight: 700;
-  color: #04211d;
-  background: linear-gradient(135deg, #2dd4bf, #26b8a5);
-  box-shadow: 0 10px 30px -10px rgba(45, 212, 191, 0.55);
-  transition: filter 0.2s, box-shadow 0.2s, transform 0.12s;
-}
-.btn-primary:hover { filter: brightness(1.06); box-shadow: 0 14px 36px -8px rgba(45, 212, 191, 0.6); }
-.btn-primary:active { transform: translateY(1px); }
+/* ---------- Botões ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid transparent; transition: background-color .15s, border-color .15s, box-shadow .15s, transform .12s; }
+.btn:active { transform: translateY(1px); }
+.btn-p { background: var(--color-brand-d); color: #fff; box-shadow: 0 0 0 1px #4fc3a155, 0 10px 30px -10px #2a9276cc; }
+.btn-p:hover { background: #23876d; box-shadow: 0 0 0 1px #4fc3a188, 0 14px 36px -10px #2a9276; }
+.btn-s { border-color: var(--color-g-line2); background: #ffffff08; color: var(--color-tx); }
+.btn-s:hover { border-color: var(--color-g-line3); background: #ffffff10; }
+.btn-sm { min-height: 40px; padding: 0 16px; font-size: 14px; }
 
-/* Cartão de vidro */
-.glass {
-  background: rgba(17, 26, 46, 0.72);
-  border: 1px solid rgba(45, 212, 191, 0.18);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.55);
-}
-.glass-hover { transition: border-color 0.25s, transform 0.25s; }
-.glass-hover:hover { border-color: rgba(45, 212, 191, 0.45); transform: translateY(-2px); }
+/* ---------- Superfícies ---------- */
+.card { background: linear-gradient(180deg, var(--color-g-850), var(--color-g-900)); border: 1px solid var(--color-g-line); border-radius: 14px; }
+.glass { background: linear-gradient(180deg, #1c2025d9, #16191dd9); border: 1px solid var(--color-g-line); border-radius: 12px; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.glow { box-shadow: 0 0 0 1px #2a927655, 0 0 44px -12px #2a9276aa; }
+.chip { font-family: var(--font-mono); font-size: 10px; line-height: 1.4; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--color-g-line2); color: var(--color-tx2); white-space: nowrap; }
+.badge-new { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .04em; color: #1a0d02; background: var(--color-accent); padding: 2px 6px; border-radius: 4px; }
+.icon-box { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; color: var(--color-brand-l); background: #2a927618; border: 1px solid #2a927640; flex: none; }
+.band { background: linear-gradient(180deg, #121519, var(--color-g-950)); border-top: 1px solid #ffffff0d; border-bottom: 1px solid #ffffff0d; }
 
-/* Fundo do topo: brilhos + rede de pontos, com movimento bem lento */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 60% at 10% -10%, rgba(15, 118, 110, 0.38), transparent 60%),
-    radial-gradient(ellipse 60% 55% at 95% 105%, rgba(249, 115, 22, 0.16), transparent 60%);
-}
-.hero-bg::before {
-  content: "";
-  position: absolute;
-  inset: -4%;
-  background: url("/brand/network-bg.svg") center / cover no-repeat;
-  opacity: 0.85;
-  animation: net-drift 60s ease-in-out infinite alternate;
-}
-@keyframes net-drift {
-  from { transform: translate3d(-1.2%, -0.8%, 0) scale(1.02); }
-  to   { transform: translate3d(1.2%, 0.8%, 0) scale(1.04); }
-}
+/* Cartão com inclinação 3D e brilho que segue o cursor (só em mouse; ver App.jsx) */
+.tilt { position: relative; transform-style: preserve-3d; transition: transform .2s ease-out, border-color .2s; overflow: hidden; }
+.tilt:hover { border-color: #2a927688; }
+.tilt::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .2s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), #4fc3a11f, transparent 42%); }
+.tilt:hover::before { opacity: 1; }
 
-/* Carrossel de clientes */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 60s linear infinite;
-}
-.animate-marquee:hover { animation-play-state: paused; }
-.mask-fade {
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-}
+/* ---------- Revelar ao rolar (só com JS; sem JS tudo aparece) ---------- */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0ms); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- Navegação ---------- */
+.topnav { background: #0f1114cc; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #ffffff0d; }
+
+/* ---------- Hero ---------- */
+.hero { background: radial-gradient(ellipse 55% 60% at 78% 45%, #1f7a632e, transparent 70%), radial-gradient(ellipse 40% 40% at 8% 100%, #f973160c, transparent 70%), var(--color-g-950); }
+.circuit { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .55; pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 50%, #000 20%, transparent 80%); mask-image: radial-gradient(ellipse 80% 70% at 70% 50%, #000 20%, transparent 80%); }
+.circuit path { fill: none; stroke: #2a9276; stroke-width: 1; opacity: .35; }
+.circuit .pulse { stroke: #7fe0c4; stroke-width: 1.5; opacity: 1; stroke-dasharray: 6 220; animation: flow 4s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -226; } }
+
+.scene { position: relative; height: 520px; perspective: 1400px; }
+.rig { position: absolute; inset: 0; transform-style: preserve-3d; transform: rotateX(calc(18deg + var(--ry, 0) * -8deg)) rotateY(calc(-22deg + var(--rx, 0) * 12deg)) rotateZ(4deg); transition: transform .25s ease-out; }
+.layer { position: absolute; transform-style: preserve-3d; }
+.l-nb { left: 6%; top: 12%; width: 78%; }
+.l-phone { left: 64%; top: 22%; width: 140px; transform: translateZ(70px); }
+.l-ura { left: -4%; top: 60%; width: 230px; transform: translateZ(120px); }
+.l-call { right: -2%; top: 2%; width: 230px; transform: translateZ(160px); }
+.l-ai { right: 4%; top: 70%; width: 240px; transform: translateZ(110px); }
+.float { animation: float 7s ease-in-out infinite; }
+@keyframes float { 50% { translate: 0 -8px; } }
+
+/* Moldura de notebook e celular */
+.nb-screen { border-radius: 10px; padding: 12px; background: var(--color-g-900); border: 1px solid var(--color-g-line2); box-shadow: 0 40px 80px -30px #000; }
+.ph-frame { border-radius: 22px; padding: 8px; background: #0b0d10; border: 1px solid var(--color-g-line2); }
+.ph-in { border-radius: 16px; background: var(--color-g-900); min-height: 250px; padding: 10px; font-size: 10.5px; }
+.bub { padding: 6px 8px; border-radius: 8px; margin-top: 6px; max-width: 88%; line-height: 1.35; }
+.bub.l { background: var(--color-g-800); }
+.bub.r { background: var(--color-brand-d); margin-left: auto; }
+.mrow { display: flex; gap: 8px; align-items: center; padding: 7px; border-radius: 6px; font-size: 11.5px; }
+.mrow + .mrow { margin-top: 4px; }
+.mrow.on { background: #2a927618; outline: 1px solid #2a927655; }
+.av { width: 22px; height: 22px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 9px; font-weight: 700; color: #fff; }
+
+/* ---------- Fluxo ---------- */
+.flow-line { position: absolute; left: 0; right: 0; top: 27px; height: 1px; background: linear-gradient(90deg, transparent, #2a927699, transparent); }
+.flow-dot { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; color: var(--color-brand-l); background: var(--color-g-900); border: 1px solid #2a927666; box-shadow: 0 0 30px -10px #2a9276; position: relative; z-index: 1; }
+
+/* ---------- Relatório da IA (barras que se montam) ---------- */
+.bars { display: flex; align-items: flex-end; gap: 6px; height: 96px; }
+.bars i { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(#4fc3a1, #1f7a63); transform-origin: bottom; }
+.js .reveal .bars i { transform: scaleY(0); transition: transform 1s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--i) * 80ms + 200ms); }
+.js .reveal.in .bars i { transform: none; }
+.typing::after { content: "▍"; color: var(--color-brand-l); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- Carrossel de clientes ---------- */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { display: flex; width: max-content; animation: marquee 60s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+.mask-fade { -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
 
 /* FAQ: some o marcador padrão do <summary> no Safari */
+summary { list-style: none; }
 summary::-webkit-details-marker { display: none; }
 
+/* ---------- Celular e tablet ---------- */
+@media (max-width: 1023px) {
+  .scene { height: 430px; margin-top: 8px; }
+  .rig { transform: rotateX(12deg) rotateY(-10deg) scale(.84); }
+  .l-ura { left: 0; } .l-ai { right: 0; } .l-call { display: none; }
+}
+@media (max-width: 640px) {
+  .scene { height: 380px; }
+  .rig { transform: rotateX(10deg) rotateY(-8deg) scale(.7); transform-origin: 40% 30%; }
+  .l-nb { left: -6%; width: 104%; } .l-phone { left: 58%; } .l-ura { top: 74%; left: -8%; } .l-ai { top: 84%; right: -14%; }
+  /* desfoque é caro em celular: superfícies sólidas */
+  .glass { -webkit-backdrop-filter: none; backdrop-filter: none; background: #1c2025f2; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg::before, .animate-marquee { animation: none; }
   html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal, .js .reveal .bars i { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 1024px) {
+  .rig { transform: rotateX(18deg) rotateY(-22deg) rotateZ(4deg) !important; }
 }
