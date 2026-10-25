@@ -36,6 +36,7 @@ export function anosDeMercado(hoje = new Date()) {
 
 export const NAV = [
   ['#recursos', 'Recursos'],
+  ['#telefonia', 'Telefonia'],
   ['#omninerd-ai', 'OmniNerd AI'],
   ['#integracoes', 'Integrações'],
   ['#planos', 'Planos'],
@@ -91,6 +92,21 @@ export const AI_ITENS = [
   ['bar-chart', 'IA Supervisor', 'Relatório semanal da operação com os seus números reais e ações sugeridas.'],
 ];
 
+/*
+ * Telefonia Nerd Services (conectividade). Regras de comunicação (precos.md):
+ * não usar “operadora” nem “STFC”; não citar a tecnologia de base — falar em “central telefônica”.
+ * Preço: só o “a partir de” do produto mais barato (plano de número Essencial).
+ */
+export const TELEFONIA_A_PARTIR_DE = 59;
+export const TELEFONIA = [
+  { icon: 'phone', titulo: 'Números fixos (DID)', texto: 'Número fixo com chamadas simultâneas de entrada e canais de saída ilimitados nacionais.' },
+  { icon: 'headphones', titulo: '0800', texto: 'Atendimento gratuito para quem liga, com bilhetagem detalhada e roteamento direto para a sua fila ou URA.' },
+  { icon: 'shield-check', titulo: 'Rota certificada (STIR/SHAKEN)', texto: 'Chamada assinada na origem, no padrão internacional contra números falsificados.' },
+  { icon: 'contact', titulo: 'CLI Premium', texto: 'O seu número fixo aparece no visor de quem recebe a ligação.' },
+  { icon: 'map-pin', titulo: 'Local Inteligente', texto: 'A ligação sai com o DDD da região do número discado.' },
+  { icon: 'network', titulo: 'Sob medida', texto: 'Operações maiores: canais de entrada e saída dimensionados para o seu volume.' },
+];
+
 export const MIGRACAO = ['Digisac', 'MandeUmZap', 'Opa Suite', 'SGA', 'Poli'];
 
 export const SEGMENTOS = [
@@ -99,11 +115,22 @@ export const SEGMENTOS = [
 ];
 
 /*
- * Pacotes (catálogo de out/2026). DECISÃO DO GUSTAVO (25/10/2026): o site mostra os planos, mas
- * NUNCA os preços — nem aqui no código (o repositório é público). Valores só na proposta comercial.
+ * Pacotes (catálogo de out/2026). DECISÃO DO GUSTAVO (25/10/2026): o site mostra os planos SEM preço,
+ * exceto o “a partir de” do plano mais barato (Essencial). Demais valores só na proposta comercial.
  */
+/*
+ * Depoimentos — só textos REAIS, com autorização. A seção some sozinha se nenhum estiver
+ * publicado (decisão do Gustavo em 25/10/2026: ocultar até juntar 2–3 de segmentos diferentes).
+ */
+export const DEPOIMENTOS = [
+  { publicado: false, nome: 'Carlos Coutinho', empresa: 'Engenho Caraçuípe', segmento: 'Indústria',
+    texto: 'Contratei a Nerd Services para reestruturar todo o atendimento e intercomunicação da empresa. O processo foi concluído em poucos dias, com rapidez extrema e qualidade técnica indiscutível.' },
+  // { publicado: true, nome: '…', empresa: '…', segmento: 'Escola', texto: '…' },
+  // { publicado: true, nome: '…', empresa: '…', segmento: 'Provedor de internet', texto: '…' },
+];
+
 export const PLANOS = [
-  { nome: 'Essencial', inclui: '5 usuários', desc: 'A base para atender em todos os canais digitais.',
+  { nome: 'Essencial', aPartirDe: 790, inclui: '5 usuários', desc: 'A base para atender em todos os canais digitais.',
     itens: ['Inbox omnichannel', 'URA e fluxos', 'Chat do site e Telegram', 'Relatórios'] },
   { nome: 'Telefonia', inclui: '3 usuários · 20 ramais', desc: 'Essencial + PABX em nuvem.',
     itens: ['Tudo do Essencial', 'PABX em nuvem', 'Filas, URA de voz e gravação'] },
@@ -118,11 +145,11 @@ export const PLANOS = [
 export const FAQ = [
   ['O número do WhatsApp continua sendo da minha empresa?', 'Sim. Você conecta a sua própria conta oficial do WhatsApp Business (API da Meta). A titularidade, o número e a reputação continuam com a sua empresa — inclusive se um dia sair do OmniNerd.'],
   ['Quanto custam as mensagens do WhatsApp?', 'As conversas são cobradas pela Meta diretamente no cartão da sua empresa, no preço oficial. A Nerd Services cobra apenas a plataforma e o suporte, sem margem sobre o consumo.'],
-  ['Preciso trocar meus telefones ou a operadora?', 'Não. O módulo de telefonia integra com a sua operadora (tronco SIP) e com os aparelhos SIP que você já usa. O atendente também pode falar direto pelo navegador, só com um headset.'],
+  ['Preciso trocar meus telefones ou o meu número?', 'Não. A central telefônica do OmniNerd funciona com os aparelhos SIP que você já usa e com o seu número atual (tronco SIP). Se preferir, a própria Nerd Services fornece os números, o 0800 e as rotas de saída. O atendente também pode falar direto pelo navegador, só com um headset.'],
   ['Como é a contratação?', 'Por pacote — Essencial, Telefonia, Atendimento, Completo ou Completo + Telefonia — com usuários inclusos. Usuários e ramais adicionais seguem uma faixa progressiva (quanto mais, menor o valor), e cada usuário de atendimento já inclui o ramal dele. A implantação inclui URA, configuração dos canais e treinamento da equipe.'],
   ['Já uso outro sistema. Consigo trazer o histórico?', 'Sim. Trazemos contatos, atendimentos e conversas com mídias de plataformas como Digisac, MandeUmZap, Opa Suite, SGA e Poli, com análise antes de importar e sem duplicar. A migração é feita pela nossa equipe na implantação.'],
   ['O OmniNerd consulta o sistema da minha empresa?', 'Sim, com a Consulta externa: a URA busca boletos, títulos e cadastros no banco do seu sistema e responde no WhatsApp. O conector é instalado pela nossa equipe em um comando, com túnel seguro e sem abrir porta no seu servidor.'],
-  ['E a LGPD?', 'Sua empresa é a controladora dos dados e a Nerd Services atua como operadora: dados isolados por empresa, login individual, registro de ações, backups cifrados, mascaramento antes da IA e um papel de TI que configura o sistema sem ver conversas.'],
+  ['E a LGPD?', 'Sua empresa é a controladora dos dados e a Nerd Services só os trata em nome dela (papel de operador na LGPD): dados isolados por empresa, login individual, registro de ações, backups cifrados, mascaramento antes da IA e um papel de TI que configura o sistema sem ver conversas.'],
   ['A IA responde qualquer coisa sozinha?', 'A IA responde com base no conteúdo que a sua empresa cadastra e encaminha para um atendente humano quando não tem certeza ou quando o cliente pede. Você decide onde ela atua.'],
 ];
 

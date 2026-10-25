@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Footer from './components/Footer.jsx';
-import { Canais, Fluxo, Modulos, Novidades, Segmentos } from './sections/Recursos.jsx';
+import { Canais, Fluxo, Modulos, Telefonia, Novidades, Segmentos } from './sections/Recursos.jsx';
 import { OmniAI, Integracoes } from './sections/OmniAI.jsx';
 import { Plataforma, Planos, Prova, Faq, Cta } from './sections/Comercial.jsx';
 import { AGENDA_ORIGEM, AGENDA_FORM } from './data/site.js';
@@ -24,6 +24,7 @@ export default function App() {
         <Canais />
         <Fluxo />
         <Modulos />
+        <Telefonia />
         <Novidades />
         <OmniAI />
         <Integracoes />
@@ -56,22 +57,14 @@ function useEfeitos() {
     window.addEventListener('message', ajustaForm);
     limpar.push(() => window.removeEventListener('message', ajustaForm));
 
-    // Revelar ao rolar + contadores
-    const contar = (el) => {
-      const alvo = Number(el.dataset.count); const pre = el.textContent.startsWith('+') ? '+' : '';
-      if (reduz || !alvo) return;
-      const t0 = performance.now(), dur = 1200;
-      const passo = (t) => { const p = Math.min(1, (t - t0) / dur); el.textContent = pre + Math.round(alvo * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(passo); };
-      requestAnimationFrame(passo);
-    };
+    // Revelar ao rolar. Os números (ex.: “+10 anos”) já vêm com o valor final no HTML — o efeito
+    // é só visual (classe .in no CSS), nunca troca o texto (SEO, leitor de tela, quem rola rápido).
     const io = new IntersectionObserver((es) => es.forEach((e) => {
       if (!e.isIntersecting) return;
       e.target.classList.add('in');
-      e.target.querySelectorAll?.('[data-count]').forEach(contar);
-      if (e.target.dataset.count) contar(e.target);
       io.unobserve(e.target);
     }), { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-    document.querySelectorAll('.reveal, dl [data-count]').forEach((el) => io.observe(el));
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
     limpar.push(() => io.disconnect());
 
     if (!reduz && mouse) {

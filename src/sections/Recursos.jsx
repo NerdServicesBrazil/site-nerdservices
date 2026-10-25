@@ -1,6 +1,6 @@
 import Icon from '../components/Icon.jsx';
 import { SectionHead, Check } from '../components/ui.jsx';
-import { CANAIS, FLUXO, MODULOS, NOVIDADES, SEGMENTOS } from '../data/site.js';
+import { CANAIS, FLUXO, MODULOS, NOVIDADES, SEGMENTOS, TELEFONIA, TELEFONIA_A_PARTIR_DE, AGENDAR, FUNDACAO } from '../data/site.js';
 
 export function Canais() {
   return (
@@ -156,6 +156,47 @@ export function Segmentos() {
             <li key={t} className="card reveal p-4 md:p-5 flex items-center gap-3" style={{ '--d': `${(i % 3) * 80}ms` }}>
               <Icon name={ic} className="w-6 h-6 text-brand-l shrink-0" strokeWidth={1.8} />
               <span className="font-medium leading-snug">{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/*
+ * Telefonia Nerd Services — a Nerd Services também fornece a conectividade (números, 0800, rotas).
+ * Regras (precos.md): sem “operadora”/“STFC”, sem citar a tecnologia de base; preço só “a partir de”.
+ */
+export function Telefonia() {
+  return (
+    <section id="telefonia" className="py-24 scroll-mt-16" aria-labelledby="titulo-telefonia">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-start">
+        <div className="reveal lg:sticky lg:top-28">
+          <span className="eyebrow">Telefonia Nerd Services</span>
+          <h2 id="titulo-telefonia" className="h-sec mt-4 mb-4">A linha telefônica <span className="hl">também é com a gente.</span></h2>
+          <p className="lead mb-6">
+            Telefonia é a nossa origem: desde {FUNDACAO.ano} cuidamos da voz das empresas. Além do OmniNerd,
+            fornecemos os números, o 0800 e as rotas de saída — tudo num só contrato e com o mesmo suporte.
+          </p>
+          <div className="card p-5 mb-6">
+            <p className="text-sm text-tx3">Planos de número</p>
+            <p className="mt-1"><span className="text-tx2">a partir de</span> <b className="text-3xl font-bold num tracking-tight">R$ {TELEFONIA_A_PARTIR_DE}</b><span className="text-tx3 text-sm">/mês</span></p>
+            <p className="text-[13px] text-tx3 mt-2">Funciona com a central do OmniNerd ou com a central SIP que você já tem.</p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a href={AGENDAR} className="btn btn-p">Falar com um especialista</a>
+          </div>
+          <p className="text-sm text-tx3 mt-6 leading-relaxed">
+            Já usa a nossa central telefônica em nuvem? A migração para o OmniNerd é feita pela nossa equipe.
+          </p>
+        </div>
+        <ul className="grid gap-4 sm:grid-cols-2">
+          {TELEFONIA.map((t, i) => (
+            <li key={t.titulo} className="card tilt reveal p-6" style={{ '--d': `${(i % 2) * 90}ms` }}>
+              <div className="icon-box"><Icon name={t.icon} className="w-6 h-6" strokeWidth={1.8} /></div>
+              <h3 className="text-lg font-semibold mt-4 mb-1.5">{t.titulo}</h3>
+              <p className="text-tx2 text-[15px] leading-relaxed">{t.texto}</p>
             </li>
           ))}
         </ul>

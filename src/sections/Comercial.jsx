@@ -1,6 +1,6 @@
 import Icon from '../components/Icon.jsx';
 import { SectionHead, Check } from '../components/ui.jsx';
-import { PLANOS, FAQ, CLIENTES, WHATS_URL, WHATS_NUM, PHONE_FIXO, AGENDAR, AGENDA_IFRAME, AGENDA_URL, INSTAGRAM_URL, INSTAGRAM_USER } from '../data/site.js';
+import { PLANOS, FAQ, CLIENTES, DEPOIMENTOS, WHATS_URL, WHATS_NUM, PHONE_FIXO, AGENDAR, AGENDA_IFRAME, AGENDA_URL, INSTAGRAM_URL, INSTAGRAM_USER } from '../data/site.js';
 
 /*
  * Seção "Como funciona" — posicionamento de PROVEDOR DE TECNOLOGIA (Tech
@@ -13,7 +13,8 @@ import { PLANOS, FAQ, CLIENTES, WHATS_URL, WHATS_NUM, PHONE_FIXO, AGENDAR, AGEND
  *   3. o consumo de conversas é pago DIRETO à Meta pela empresa — não há
  *      revenda de mensagens. Nós cobramos a plataforma.
  * Não alterar o sentido destes textos sem rever a análise da Meta.
- * (Textos mantidos iguais aos de antes do redesign — 25/10/2026.)
+ * (Textos mantidos iguais aos de antes do redesign; desde 25/10/2026 a seção é compacta e os
+ *  detalhes ficam num bloco recolhível — o texto completo continua no HTML.)
  */
 export function Plataforma() {
   const steps = [
@@ -22,31 +23,33 @@ export function Plataforma() {
     { step: '03', title: 'Você paga o consumo direto à Meta', description: 'As conversas do WhatsApp são cobradas pela Meta diretamente da sua conta, pelo preço oficial dela. Não revendemos mensagens nem embutimos margem no seu consumo. Da Nerd Services você contrata a plataforma e o suporte.' },
   ];
   return (
-    <section id="plataforma" className="py-24 band scroll-mt-16" aria-labelledby="titulo-plataforma">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHead id="titulo-plataforma" center eyebrow="Plataforma SaaS · Provedor de tecnologia" title="Como a sua empresa usa o" accent="OmniNerd"
-          text="O OmniNerd é uma plataforma de software (SaaS) contratada por empresas que precisam atender os seus próprios clientes. Cada empresa opera o seu espaço, com os seus atendentes e os seus canais — isolada das demais." />
-        <div className="grid gap-5 md:grid-cols-3 mb-8">
-          {steps.map((s, i) => (
-            <div key={s.step} className="card tilt reveal p-7" style={{ '--d': `${i * 100}ms` }}>
-              <div className="mono text-4xl font-bold text-brand/50 mb-4">{s.step}</div>
-              <h3 className="text-xl font-semibold mb-3 leading-snug">{s.title}</h3>
-              <p className="text-tx2 leading-relaxed">{s.description}</p>
+    <section id="plataforma" className="py-16 band scroll-mt-16" aria-labelledby="titulo-plataforma">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="card reveal p-6 md:p-9">
+          <span className="eyebrow">Plataforma SaaS · Provedor de tecnologia</span>
+          <h2 id="titulo-plataforma" className="text-2xl md:text-3xl font-semibold tracking-tight mt-3 mb-3">Como a sua empresa usa o <span className="hl">OmniNerd</span></h2>
+          <p className="text-tx2 leading-relaxed">O OmniNerd é uma plataforma de software (SaaS) contratada por empresas que precisam atender os seus próprios clientes. Cada empresa opera o seu espaço, com os seus atendentes e os seus canais — isolada das demais.</p>
+          <ol className="grid gap-3 md:grid-cols-3 mt-6">
+            {steps.map((s) => (
+              <li key={s.step} className="flex gap-3 items-start rounded-lg border border-g-line bg-g-950/60 p-4">
+                <span className="mono text-sm font-bold text-brand-l">{s.step}</span>
+                <span className="font-medium leading-snug">{s.title}</span>
+              </li>
+            ))}
+          </ol>
+          <details className="group mt-5">
+            <summary className="cursor-pointer inline-flex items-center gap-2 text-sm font-semibold text-brand-l">
+              <Icon name="plus" className="w-4 h-4 transition-transform group-open:rotate-45" /> Ver os detalhes: conta, isolamento e custo
+            </summary>
+            <div className="mt-5 grid gap-6 md:grid-cols-3 text-[15px]">
+              {steps.map((s) => (
+                <div key={s.step}><h3 className="font-semibold mb-1.5">{s.title}</h3><p className="text-tx2 leading-relaxed">{s.description}</p></div>
+              ))}
+              <div><h3 className="font-semibold mb-1.5">Cada empresa, o seu espaço</h3><p className="text-tx2 leading-relaxed">A arquitetura é multiempresa: os dados de um cliente nunca são acessíveis a outro. O acesso é por login individual, com papéis e permissões definidos pelo administrador de cada empresa.</p></div>
+              <div className="md:col-span-2"><h3 className="font-semibold mb-1.5">Transparência no custo</h3><p className="text-tx2 leading-relaxed">Você paga a Meta pelo que conversar, no preço oficial, e a Nerd Services pela plataforma. Sem intermediação no consumo e sem surpresa na fatura — você acompanha o uso pelo próprio painel.</p></div>
             </div>
-          ))}
-        </div>
-        <div className="card reveal p-7 md:p-9 max-w-4xl mx-auto">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Cada empresa, o seu espaço</h3>
-              <p className="text-tx2 leading-relaxed">A arquitetura é multiempresa: os dados de um cliente nunca são acessíveis a outro. O acesso é por login individual, com papéis e permissões definidos pelo administrador de cada empresa.</p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Transparência no custo</h3>
-              <p className="text-tx2 leading-relaxed">Você paga a Meta pelo que conversar, no preço oficial, e a Nerd Services pela plataforma. Sem intermediação no consumo e sem surpresa na fatura — você acompanha o uso pelo próprio painel.</p>
-            </div>
-          </div>
-          <p className="text-sm text-tx3 mt-8 leading-relaxed">A Nerd Services é uma provedora de tecnologia: desenvolvemos e operamos o software. O uso do WhatsApp segue os termos e as políticas da Meta, e as mensagens são enviadas apenas a pessoas que entraram em contato com a empresa ou consentiram em recebê-las.</p>
+          </details>
+          <p className="text-sm text-tx3 mt-6 pt-5 border-t border-g-line leading-relaxed">A Nerd Services é uma provedora de tecnologia: desenvolvemos e operamos o software. O uso do WhatsApp segue os termos e as políticas da Meta, e as mensagens são enviadas apenas a pessoas que entraram em contato com a empresa ou consentiram em recebê-las.</p>
         </div>
       </div>
     </section>
@@ -67,6 +70,9 @@ export function Planos() {
                 <h3 className="font-semibold text-lg leading-tight">{p.nome}</h3>
                 {p.destaque && <span className="badge-new">COM IA</span>}
               </div>
+              {p.aPartirDe && (
+                <p className="mt-3"><span className="text-tx3 text-sm">a partir de</span> <b className="text-2xl font-bold num tracking-tight">R$ {p.aPartirDe.toLocaleString('pt-BR')}</b><span className="text-tx3 text-sm">/mês</span></p>
+              )}
               <p className="mono text-[12px] text-brand-l mt-3">{p.inclui}</p>
               <p className="text-tx2 text-[15px] leading-relaxed mt-3">{p.desc}</p>
               <ul className="mt-4 space-y-2 text-[14px] text-tx2 flex-1">
@@ -100,17 +106,26 @@ export function Prova() {
           ))}
         </ul>
       </div>
-      <figure className="reveal max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="card p-8 md:p-12 text-center">
-          <div className="text-6xl leading-none font-bold text-accent h-8 mb-6" aria-hidden="true">“</div>
-          <blockquote className="text-xl md:text-2xl font-medium leading-snug mb-8">
-            Contratei a Nerd Services para reestruturar todo o atendimento e intercomunicação da empresa. O processo foi concluído em poucos
-            dias, com rapidez extrema e qualidade técnica indiscutível.
-          </blockquote>
-          <figcaption><b className="block">Carlos Coutinho</b><span className="text-brand-l">Engenho Caraçuipe</span></figcaption>
-        </div>
-      </figure>
+      <Depoimentos />
     </section>
+  );
+}
+
+/* Depoimentos: só os marcados como publicados (src/data/site.js). Nenhum publicado = nada aparece. */
+function Depoimentos() {
+  const lista = DEPOIMENTOS.filter((d) => d.publicado);
+  if (!lista.length) return null;
+  const um = lista.length === 1;
+  return (
+    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 grid gap-5 ${um ? 'max-w-4xl' : 'md:grid-cols-2 lg:grid-cols-3'}`}>
+      {lista.map((d, i) => (
+        <figure key={d.nome} className="card reveal p-8 flex flex-col" style={{ '--d': `${i * 100}ms` }}>
+          <div className="text-5xl leading-none font-bold text-accent h-6 mb-5" aria-hidden="true">“</div>
+          <blockquote className={`${um ? 'text-xl md:text-2xl' : 'text-lg'} font-medium leading-snug mb-6 flex-1`}>{d.texto}</blockquote>
+          <figcaption><b className="block">{d.nome}</b><span className="text-brand-l">{d.empresa}</span>{d.segmento && <span className="block text-sm text-tx3 mt-0.5">{d.segmento}</span>}</figcaption>
+        </figure>
+      ))}
+    </div>
   );
 }
 

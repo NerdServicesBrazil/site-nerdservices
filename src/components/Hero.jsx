@@ -23,10 +23,10 @@ export default function Hero() {
             <a href={AGENDAR} className="btn btn-p">Agendar demonstração</a>
             <a href="#planos" className="btn btn-s">Ver planos</a>
           </div>
-          <dl className="flex flex-wrap gap-x-8 gap-y-4 mt-10 text-sm text-tx3">
-            <div><dt className="sr-only">Anos de mercado</dt><dd><b className="block text-2xl text-tx num" data-count={anos} suppressHydrationWarning>+{anos}</b>anos de mercado</dd></div>
-            <div><dt className="sr-only">Canais</dt><dd><b className="block text-2xl text-tx num" data-count="5">5</b>canais numa tela</dd></div>
-            <div><dt className="sr-only">Idiomas</dt><dd><b className="block text-2xl text-tx num" data-count="5">5</b>idiomas</dd></div>
+          <dl className="reveal stats flex flex-wrap gap-x-8 gap-y-4 mt-10 text-sm text-tx3">
+            <div><dt className="sr-only">Anos de mercado</dt><dd><b className="block text-2xl text-tx num" suppressHydrationWarning>+{anos}</b>anos de mercado</dd></div>
+            <div><dt className="sr-only">Canais</dt><dd><b className="block text-2xl text-tx num" >5</b>canais numa tela</dd></div>
+            <div><dt className="sr-only">Idiomas</dt><dd><b className="block text-2xl text-tx num" >5</b>idiomas</dd></div>
           </dl>
         </div>
         <Stage />
