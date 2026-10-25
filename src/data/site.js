@@ -11,6 +11,7 @@ export const PHONE_FIXO = '(82) 3142-3700';
 export const PHONE_CEL = '(82) 99828-4515';
 export const EMAIL = 'gustavo@nerdservices.com.br';
 export const INSTAGRAM_URL = 'https://instagram.com/nerdservicesbr';
+export const INSTAGRAM_USER = '@nerdservicesbr';
 export const SISTEMA_URL = 'https://omninerd.com.br';
 
 /*
@@ -126,14 +127,35 @@ export const FAQ = [
 ];
 
 /*
- * Carrossel de clientes. Troque "name" pelo nome real de cada empresa
- * (vira o texto alternativo — ajuda no Google e na acessibilidade).
+ * Carrossel de clientes — lista enviada pelo Gustavo em 25/10/2026 (pasta `logos`).
+ * Logo de cliente só com autorização; ao tirar um cliente, apagar também o arquivo em public/clients/.
+ * Imagens em WebP (máx. 360×120). `escuro: true` = logo branco, vai em cartão escuro.
  */
 export const CLIENTES = [
-  { name: 'Engenho Caraçuipe', logo: '/clients/caracuipe.png' },
-  ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23].map((n) => ({
-    name: `Cliente ${String(n).padStart(2, '0')}`, logo: `/clients/cliente (${n}).png`,
-  })),
-  { name: 'Cliente 43', logo: '/clients/cliente (1).svg' },
-  { name: 'Cliente 44', logo: '/clients/cliente (1).jpg' },
+  { name: 'Acolha-me', logo: '/clients/acolha-me.webp', w: 147, h: 120 },
+  { name: 'Alive Net', logo: '/clients/alive-net.webp', w: 229, h: 120 },
+  { name: 'Âncora Telecom', logo: '/clients/ancora-telecom.webp', w: 360, h: 53 },
+  { name: 'ATM Telecom', logo: '/clients/atm-telecom.webp', w: 346, h: 120 },
+  { name: 'Audo Proteção Veicular', logo: '/clients/audo-protecao-veicular.webp', w: 250, h: 120, escuro: true },
+  { name: 'BH Med', logo: '/clients/bh-med.webp', w: 120, h: 120 },
+  { name: 'Century Net', logo: '/clients/century-net.webp', w: 208, h: 47 },
+  { name: 'Colégio Santa Úrsula', logo: '/clients/colegio-santa-ursula.webp', w: 304, h: 120 },
+  { name: 'Comafer', logo: '/clients/comafer.webp', w: 212, h: 120 },
+  { name: 'COPRA', logo: '/clients/copra.webp', w: 131, h: 120 },
+  { name: 'Delgado & Sampaio Advogados', logo: '/clients/delgado-sampaio-advogados.webp', w: 360, h: 108 },
+  { name: 'Eco Memorial', logo: '/clients/eco-memorial.webp', w: 159, h: 95 },
+  { name: 'Engenho Caraçuípe', logo: '/clients/engenho-caracuipe.webp', w: 229, h: 100 },
+  { name: 'Fácil Gestão Condominial', logo: '/clients/facil-gestao-condominial.webp', w: 172, h: 120 },
+  { name: 'GAGC', logo: '/clients/gagc.webp', w: 152, h: 120 },
+  { name: 'HemoPac', logo: '/clients/hemopac.webp', w: 360, h: 76 },
+  { name: 'Litoral Telecom', logo: '/clients/litoral-telecom.webp', w: 160, h: 120, escuro: true },
+  { name: 'Newplast Embalagens', logo: '/clients/newplast-embalagens.webp', w: 135, h: 120, escuro: true },
+  { name: 'NK Telecom', logo: '/clients/nk-telecom.webp', w: 224, h: 120 },
+  { name: 'Plastmar', logo: '/clients/plastmar.webp', w: 120, h: 120 },
+  { name: 'Quality Tecnologia', logo: '/clients/quality-tecnologia.webp', w: 330, h: 120 },
+  { name: 'Rosalvo', logo: '/clients/rosalvo.webp', w: 196, h: 40 },
+  { name: 'Stella Marina', logo: '/clients/stella-marina.webp', w: 270, h: 89, escuro: true },
+  { name: 'T2Web', logo: '/clients/t2web.webp', w: 168, h: 88 },
+  { name: 'Total Saúde', logo: '/clients/total-saude.webp', w: 182, h: 60 },
+  { name: 'Veloo', logo: '/clients/veloo.webp', w: 224, h: 120 },
 ];

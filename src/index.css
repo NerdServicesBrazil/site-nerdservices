@@ -55,6 +55,9 @@ body { background: var(--color-g-950); color: var(--color-tx); font-family: var(
 .glow { box-shadow: 0 0 0 1px #2a927655, 0 0 44px -12px #2a9276aa; }
 .chip { font-family: var(--font-mono); font-size: 10px; line-height: 1.4; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--color-g-line2); color: var(--color-tx2); white-space: nowrap; }
 .badge-new { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .04em; color: #1a0d02; background: var(--color-accent); padding: 2px 6px; border-radius: 4px; }
+/* Selo do Instagram: gradiente da marca só no ícone (o resto segue a paleta do site) */
+.ig-badge { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; color: #fff; flex: none;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%); box-shadow: 0 10px 30px -12px #d6249f99; }
 .icon-box { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; color: var(--color-brand-l); background: #2a927618; border: 1px solid #2a927640; flex: none; }
 .band { background: linear-gradient(180deg, #121519, var(--color-g-950)); border-top: 1px solid #ffffff0d; border-bottom: 1px solid #ffffff0d; }
 
@@ -119,6 +122,14 @@ body { background: var(--color-g-950); color: var(--color-tx); font-family: var(
 @keyframes marquee { to { transform: translateX(-50%); } }
 .marquee { display: flex; width: max-content; animation: marquee 60s linear infinite; }
 .marquee:hover { animation-play-state: paused; }
+.logo-tile { flex: none; width: 184px; height: 88px; display: grid; place-items: center; padding: 14px 18px; border-radius: 14px;
+  background: #eceef1; border: 1px solid #ffffff1a; transition: transform .2s, box-shadow .2s; }
+.logo-tile img { max-width: 148px; max-height: 58px; width: auto; height: auto; object-fit: contain; filter: grayscale(1); opacity: .78; transition: filter .25s, opacity .25s; }
+.logo-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -12px #2a9276; }
+.logo-tile:hover img { filter: none; opacity: 1; }
+.logo-tile-escuro { background: var(--color-g-800); border-color: var(--color-g-line2); }
+.logo-tile-escuro img { opacity: .9; }
+@media (hover: none) { .logo-tile img { filter: none; opacity: 1; } }
 .mask-fade { -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
 
 /* FAQ: some o marcador padrão do <summary> no Safari */

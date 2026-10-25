@@ -56,11 +56,6 @@ function useEfeitos() {
     window.addEventListener('message', ajustaForm);
     limpar.push(() => window.removeEventListener('message', ajustaForm));
 
-    // Logos de cliente que falharam antes do React acordar (o onError não pegou)
-    document.querySelectorAll('.marquee img').forEach((img) => {
-      if (img.complete && img.naturalWidth === 0) img.parentElement.style.display = 'none';
-    });
-
     // Revelar ao rolar + contadores
     const contar = (el) => {
       const alvo = Number(el.dataset.count); const pre = el.textContent.startsWith('+') ? '+' : '';

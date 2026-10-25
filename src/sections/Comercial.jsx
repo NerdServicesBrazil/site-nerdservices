@@ -1,6 +1,6 @@
 import Icon from '../components/Icon.jsx';
 import { SectionHead, Check } from '../components/ui.jsx';
-import { PLANOS, FAQ, CLIENTES, WHATS_URL, WHATS_NUM, PHONE_FIXO, AGENDAR, AGENDA_IFRAME, AGENDA_URL } from '../data/site.js';
+import { PLANOS, FAQ, CLIENTES, WHATS_URL, WHATS_NUM, PHONE_FIXO, AGENDAR, AGENDA_IFRAME, AGENDA_URL, INSTAGRAM_URL, INSTAGRAM_USER } from '../data/site.js';
 
 /*
  * Seção "Como funciona" — posicionamento de PROVEDOR DE TECNOLOGIA (Tech
@@ -92,11 +92,10 @@ export function Prova() {
     <section id="clientes" className="py-20 overflow-hidden scroll-mt-16 band" aria-labelledby="titulo-clientes">
       <h2 id="titulo-clientes" className="text-center text-sm font-semibold text-tx3 uppercase tracking-[0.2em] px-4 mb-8">Empresas que confiam na engenharia da Nerd Services</h2>
       <div className="relative w-full flex overflow-x-hidden mask-fade">
-        <ul className="marquee items-center gap-16 py-4">
+        <ul className="marquee items-center gap-4 sm:gap-5 py-4">
           {lista.map((c, i) => (
-            <li key={i} className="flex items-center justify-center min-w-[180px] h-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition" aria-hidden={i >= CLIENTES.length ? 'true' : undefined}>
-              <img src={c.logo} alt={i < CLIENTES.length ? `Logo ${c.name}` : ''} loading="lazy" decoding="async" className="max-h-14 max-w-[160px] object-contain"
-                onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }} />
+            <li key={i} className={`logo-tile ${c.escuro ? 'logo-tile-escuro' : ''}`} aria-hidden={i >= CLIENTES.length ? 'true' : undefined}>
+              <img src={c.logo} alt={i < CLIENTES.length ? c.name : ''} width={c.w} height={c.h} loading="lazy" decoding="async" />
             </li>
           ))}
         </ul>
@@ -156,9 +155,10 @@ export function Cta() {
             <li className="flex gap-2"><Check />Confirmamos pelo WhatsApp ou por e-mail, como você preferir.</li>
           </ul>
           <p className="text-sm text-tx3 mb-3">Prefere falar agora?</p>
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
             <a href={WHATS_URL} target="_blank" rel="noopener noreferrer" className="btn btn-s"><Icon name="message-circle" className="w-5 h-5 text-brand-l" /> WhatsApp</a>
             <a href={`tel:+${WHATS_NUM}`} className="btn btn-s"><Icon name="phone" className="w-5 h-5 text-brand-l" /> {PHONE_FIXO}</a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn btn-s"><Icon name="instagram" className="w-5 h-5 text-brand-l" /> {INSTAGRAM_USER}</a>
           </div>
         </div>
         <div className="reveal" style={{ '--d': '120ms' }}>

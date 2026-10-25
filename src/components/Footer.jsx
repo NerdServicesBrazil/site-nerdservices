@@ -1,10 +1,19 @@
 import Icon from './Icon.jsx';
-import { NAV, WHATS_NUM, WHATS_CEL, AGENDAR, PHONE_FIXO, PHONE_CEL, EMAIL, INSTAGRAM_URL, SISTEMA_URL } from '../data/site.js';
+import { NAV, WHATS_NUM, WHATS_CEL, AGENDAR, INSTAGRAM_USER, PHONE_FIXO, PHONE_CEL, EMAIL, INSTAGRAM_URL, SISTEMA_URL } from '../data/site.js';
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/5 pt-16 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer"
+          className="card tilt group flex flex-col sm:flex-row items-start sm:items-center gap-5 p-6 md:p-8 mb-14 hover:border-brand/60">
+          <span className="ig-badge" aria-hidden="true"><Icon name="instagram" className="w-7 h-7" /></span>
+          <span className="flex-1">
+            <span className="block text-xl md:text-2xl font-semibold">Acompanhe a Nerd Services no Instagram</span>
+            <span className="block text-tx2 mt-1">Novidades do OmniNerd, dicas de atendimento e bastidores — {INSTAGRAM_USER}</span>
+          </span>
+          <span className="btn btn-p shrink-0">Seguir {INSTAGRAM_USER}</span>
+        </a>
         <div className="grid gap-10 md:grid-cols-4 mb-12">
           <div className="md:col-span-1">
             <div className="flex items-center gap-1 mb-5">
@@ -27,7 +36,7 @@ export default function Footer() {
           </div>
           <div className="space-y-3 text-tx2">
             <h2 className="text-sm font-semibold uppercase tracking-widest text-tx3 mb-4">Links</h2>
-            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-brand-l transition-colors"><Icon name="instagram" className="w-5 h-5 text-brand-l" /> @nerdservicesbr</a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-brand-l transition-colors"><Icon name="instagram" className="w-5 h-5 text-brand-l" /> {INSTAGRAM_USER}</a>
             <a href={SISTEMA_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-brand-l transition-colors"><Icon name="headphones" className="w-5 h-5 text-brand-l" /> Área do cliente</a>
             <a href={AGENDAR} className="flex items-center gap-3 hover:text-brand-l transition-colors"><Icon name="calendar-clock" className="w-5 h-5 text-brand-l" /> Agendar demonstração</a>
           </div>

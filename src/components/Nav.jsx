@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Icon from './Icon.jsx';
-import { NAV, SISTEMA_URL, AGENDAR } from '../data/site.js';
+import { NAV, SISTEMA_URL, AGENDAR, INSTAGRAM_URL, INSTAGRAM_USER } from '../data/site.js';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -19,6 +19,9 @@ export default function Nav() {
           ))}
         </ul>
         <div className="hidden lg:flex items-center gap-3">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn btn-s btn-sm px-3" aria-label={`Instagram da Nerd Services (${INSTAGRAM_USER})`} title={INSTAGRAM_USER}>
+            <Icon name="instagram" className="w-5 h-5" />
+          </a>
           <a href={SISTEMA_URL} target="_blank" rel="noopener noreferrer" className="btn btn-s btn-sm">Área do cliente</a>
           <a href={AGENDAR} className="btn btn-p btn-sm">Agendar demo</a>
         </div>
@@ -37,6 +40,7 @@ export default function Nav() {
           <div className="grid grid-cols-2 gap-3 px-4 pb-4">
             <a href={SISTEMA_URL} target="_blank" rel="noopener noreferrer" className="btn btn-s btn-sm">Área do cliente</a>
             <a href={AGENDAR} onClick={() => setOpen(false)} className="btn btn-p btn-sm">Agendar demo</a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn btn-s btn-sm col-span-2"><Icon name="instagram" className="w-5 h-5 text-brand-l" /> Siga {INSTAGRAM_USER}</a>
           </div>
         </div>
       )}
