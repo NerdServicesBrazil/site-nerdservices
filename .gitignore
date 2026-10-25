@@ -8,3 +8,10 @@ build/
 Thumbs.db
 updates/
 *.log
+
+# Docs de trabalho do Claude: ficam fora do repo público
+METODO.md
+PROJETO.md
+handoff-*.md
+claude/
+update_site/
