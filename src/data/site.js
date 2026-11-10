@@ -13,6 +13,14 @@ export const EMAIL = 'gustavo@nerdservices.com.br';
 export const INSTAGRAM_URL = 'https://instagram.com/nerdservicesbr';
 export const INSTAGRAM_USER = '@nerdservicesbr';
 export const SISTEMA_URL = 'https://omninerd.com.br';
+// FATIA 20261110_ANDROID: aplicativo de celular OmniNerd (Android publicado; iPhone em breve)
+export const APP_ANDROID_URL = 'https://play.google.com/store/apps/details?id=io.omninerd.app';
+export const APP_ITENS = [
+  ['message-circle', 'Conversas do WhatsApp, Instagram, Telegram e chat do site num só lugar'],
+  ['phone', 'Faça e receba ligações do ramal da empresa pelo celular'],
+  ['bell', 'Aviso na hora de mensagem nova e de ligação recebida'],
+  ['mic', 'Fotos, vídeos, documentos e notas de voz'],
+];
 
 /*
  * Agendamento de demonstração = Formulário do Site do próprio OmniNerd (tenant nerdservices).
@@ -150,6 +158,7 @@ export const FAQ = [
   ['Já uso outro sistema. Consigo trazer o histórico?', 'Sim. Trazemos contatos, atendimentos e conversas com mídias de plataformas como Digisac, MandeUmZap, Opa Suite, SGA e Poli, com análise antes de importar e sem duplicar. A migração é feita pela nossa equipe na implantação.'],
   ['O OmniNerd consulta o sistema da minha empresa?', 'Sim, com a Consulta externa: a URA busca boletos, títulos e cadastros no banco do seu sistema e responde no WhatsApp. O conector é instalado pela nossa equipe em um comando, com túnel seguro e sem abrir porta no seu servidor.'],
   ['E a LGPD?', 'Sua empresa é a controladora dos dados e a Nerd Services só os trata em nome dela (papel de operador na LGPD): dados isolados por empresa, login individual, registro de ações, backups cifrados, mascaramento antes da IA e um papel de TI que configura o sistema sem ver conversas.'],
+  ['O OmniNerd tem aplicativo para celular?', 'Sim. O app OmniNerd para Android já está na Google Play (o de iPhone chega em breve). Baixe o aplicativo, informe o endereço da sua empresa e entre com o seu login — a conta é criada pelo administrador da empresa no painel do OmniNerd.'],
   ['A IA responde qualquer coisa sozinha?', 'A IA responde com base no conteúdo que a sua empresa cadastra e encaminha para um atendente humano quando não tem certeza ou quando o cliente pede. Você decide onde ela atua.'],
 ];
 

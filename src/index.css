@@ -163,3 +163,13 @@ summary::-webkit-details-marker { display: none; }
 @media (prefers-reduced-motion: reduce) and (min-width: 1024px) {
   .rig { transform: rotateX(18deg) rotateY(-22deg) rotateZ(4deg) !important; }
 }
+
+/* FATIA 20261110_ANDROID — botão de loja (texto, sem logo da Google) e cartão do QR Code */
+.store-btn { display: inline-flex; align-items: center; gap: 12px; padding: 10px 18px 10px 14px; border-radius: 12px; background: #000; color: #fff; border: 1px solid var(--color-g-line3); font-weight: 600; font-size: 19px; line-height: 1.1; transition: border-color .2s, transform .2s; width: fit-content; }
+.store-btn small { display: block; font-size: 11px; font-weight: 500; letter-spacing: .02em; color: #d6d9dd; }
+.store-btn:hover { border-color: var(--color-brand-l); transform: translateY(-1px); }
+.store-btn-sm { font-size: 15px; padding: 7px 14px 7px 10px; gap: 9px; }
+.store-btn-sm small { font-size: 10px; }
+.qr-card { max-width: 300px; }
+.qr-img { width: 200px; height: 200px; margin: 0 auto; border-radius: 10px; background: #fff; padding: 8px; box-sizing: content-box; }
+@media (prefers-reduced-motion: reduce) { .store-btn:hover { transform: none; } }

@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Footer from './components/Footer.jsx';
-import { Canais, Fluxo, Modulos, Telefonia, Novidades, Segmentos } from './sections/Recursos.jsx';
+import { Canais, Fluxo, Modulos, Telefonia, AppCelular, Novidades, Segmentos } from './sections/Recursos.jsx'; // FATIA 20261110_ANDROID: AppCelular
 import { OmniAI, Integracoes } from './sections/OmniAI.jsx';
 import { Plataforma, Planos, Prova, Faq, Cta } from './sections/Comercial.jsx';
 import { AGENDA_ORIGEM, AGENDA_FORM } from './data/site.js';
@@ -25,6 +25,7 @@ export default function App() {
         <Fluxo />
         <Modulos />
         <Telefonia />
+        <AppCelular />
         <Novidades />
         <OmniAI />
         <Integracoes />

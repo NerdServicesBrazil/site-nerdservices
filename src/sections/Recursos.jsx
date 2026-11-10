@@ -1,6 +1,6 @@
 import Icon from '../components/Icon.jsx';
 import { SectionHead, Check } from '../components/ui.jsx';
-import { CANAIS, FLUXO, MODULOS, NOVIDADES, SEGMENTOS, TELEFONIA, TELEFONIA_A_PARTIR_DE, AGENDAR, FUNDACAO } from '../data/site.js';
+import { CANAIS, FLUXO, MODULOS, NOVIDADES, SEGMENTOS, TELEFONIA, TELEFONIA_A_PARTIR_DE, AGENDAR, FUNDACAO, APP_ANDROID_URL, APP_ITENS } from '../data/site.js';
 
 export function Canais() {
   return (
@@ -86,6 +86,49 @@ export function Modulos() {
               </ul>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* FATIA 20261110_ANDROID — App OmniNerd no celular. QR Code só no computador (no celular o selo abre a loja). */
+export function AppCelular() {
+  return (
+    <section id="app" className="py-24 band scroll-mt-16" aria-labelledby="titulo-app">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
+        <div className="reveal">
+          <span className="eyebrow">Novo · App OmniNerd</span>
+          <h2 id="titulo-app" className="h-sec mt-4 mb-4">Atenda de onde estiver. <span className="hl">Agora no celular.</span></h2>
+          <p className="lead mb-6">
+            O aplicativo OmniNerd leva o atendimento para o celular da sua equipe: as conversas de todos os canais,
+            as ligações do ramal e os avisos na hora — com o mesmo login do sistema.
+          </p>
+          <ul className="grid gap-3 sm:grid-cols-2 mb-8">
+            {APP_ITENS.map(([ic, t]) => (
+              <li key={t} className="flex items-start gap-3 text-tx2 text-[15px] leading-relaxed">
+                <Icon name={ic} className="w-5 h-5 text-brand-l shrink-0 mt-0.5" /> {t}
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <a href={APP_ANDROID_URL} target="_blank" rel="noopener noreferrer" className="store-btn">
+              <Icon name="download" className="w-6 h-6" />
+              <span><small>Disponível no</small>Google Play</span>
+            </a>
+            <p className="text-sm text-tx3">iPhone: em breve na App Store.</p>
+          </div>
+          <p className="text-sm text-tx3 mt-6 leading-relaxed">
+            Como entrar: baixe o app, informe o endereço da sua empresa e use o seu login.
+            A conta é criada pelo administrador da empresa no painel do OmniNerd.
+          </p>
+        </div>
+        <div className="reveal hidden md:flex justify-center" style={{ '--d': '120ms' }}>
+          <div className="card qr-card p-6 text-center">
+            <img src="/app/qr-google-play.svg" alt="QR Code para baixar o app OmniNerd na Google Play" width="200" height="200" className="qr-img" loading="lazy" />
+            <p className="mt-4 font-semibold flex items-center justify-center gap-2"><Icon name="smartphone" className="w-5 h-5 text-brand-l" /> Aponte a câmera do celular</p>
+            <p className="text-sm text-tx3 mt-1">Abre o OmniNerd na Google Play</p>
+          </div>
         </div>
       </div>
     </section>

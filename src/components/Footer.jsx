@@ -1,5 +1,5 @@
 import Icon from './Icon.jsx';
-import { NAV, WHATS_NUM, WHATS_CEL, AGENDAR, INSTAGRAM_USER, PHONE_FIXO, PHONE_CEL, EMAIL, INSTAGRAM_URL, SISTEMA_URL } from '../data/site.js';
+import { NAV, WHATS_NUM, WHATS_CEL, AGENDAR, INSTAGRAM_USER, PHONE_FIXO, PHONE_CEL, EMAIL, INSTAGRAM_URL, SISTEMA_URL, APP_ANDROID_URL } from '../data/site.js'; // FATIA 20261110_ANDROID
 
 export default function Footer() {
   return (
@@ -38,6 +38,8 @@ export default function Footer() {
             <h2 className="text-sm font-semibold uppercase tracking-widest text-tx3 mb-4">Links</h2>
             <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-brand-l transition-colors"><Icon name="instagram" className="w-5 h-5 text-brand-l" /> {INSTAGRAM_USER}</a>
             <a href={SISTEMA_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-brand-l transition-colors"><Icon name="headphones" className="w-5 h-5 text-brand-l" /> Área do cliente</a>
+            <a href={APP_ANDROID_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-brand-l transition-colors"><Icon name="smartphone" className="w-5 h-5 text-brand-l" /> App para Android</a>
+            <a href={APP_ANDROID_URL} target="_blank" rel="noopener noreferrer" className="store-btn store-btn-sm mt-2"><Icon name="download" className="w-5 h-5" /><span><small>Disponível no</small>Google Play</span></a>
             <a href={AGENDAR} className="flex items-center gap-3 hover:text-brand-l transition-colors"><Icon name="calendar-clock" className="w-5 h-5 text-brand-l" /> Agendar demonstração</a>
           </div>
         </div>
