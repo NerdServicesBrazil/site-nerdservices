@@ -1,7 +1,8 @@
 /*
- * Conteúdo do site — fonte: claude/recursos-omninerd.md (catálogo de 24/10/2026).
- * Regras: nada da seção "Planejado" como pronto; WhatsApp por QR Code NÃO aparece no site;
- * preço só com os números do catálogo.
+ * Conteúdo do site — fonte: recursos-omninerd.md (catálogo de 19/11/2026; FATIA 20261119_RECURSOS).
+ * Regras: nada da seção "Planejado" como pronto; a conexão do WhatsApp por QR Code NÃO aparece no site;
+ * preço: SÓ o "a partir de R$ 790/mês" do Essencial — todo o resto é "sob consulta" (Gustavo, 19/11/2026).
+ * Explorador de recursos, Novo SAC e Saúde: src/data/recursos.js.
  */
 
 export const WHATS_NUM = '558231423700';
@@ -44,58 +45,33 @@ export function anosDeMercado(hoje = new Date()) {
 
 export const NAV = [
   ['#recursos', 'Recursos'],
+  ['#novo-sac', 'Novo SAC'],
+  ['#saude', 'Saúde'],
   ['#telefonia', 'Telefonia'],
   ['#omninerd-ai', 'OmniNerd AI'],
-  ['#integracoes', 'Integrações'],
   ['#planos', 'Planos'],
-  ['#faq', 'Dúvidas'],
+  ['#sobre', 'Sobre'],
 ];
 
-export const CANAIS = [
-  ['message-circle', 'WhatsApp oficial'],
-  ['phone', 'Telefonia / PABX'],
-  ['instagram', 'Instagram'],
-  ['globe', 'Chat do site'],
-  ['send', 'Telegram'],
-  ['mic', 'Voz pelo WhatsApp'],
-];
-
-export const FLUXO = [
-  { n: '01', tag: 'Canal', titulo: 'A mensagem chega', texto: 'WhatsApp, telefone, Instagram, chat do site ou Telegram caem na mesma caixa de entrada, com o canal em destaque.' },
-  { n: '02', tag: 'URA', titulo: 'A URA entende e resolve', texto: 'Texto livre ou áudio. Consulta o sistema da sua empresa e já responde — boleto, cadastro, situação do pedido.' },
-  { n: '03', tag: 'Equipe', titulo: 'O atendente assume', texto: 'Com protocolo, prazo e o que o cliente já respondeu. O copiloto da OmniNerd AI sugere a resposta.' },
-  { n: '04', tag: 'OmniNerd AI', titulo: 'A IA Supervisor relata', texto: 'Toda semana, um relatório da operação inteira: o que melhorou, o que piorou e o que fazer.' },
-];
-
-export const MODULOS = [
-  { icon: 'layout-dashboard', titulo: 'Inbox omnichannel', texto: 'Todos os canais numa caixa de entrada compartilhada, em tempo real.',
-    itens: ['Meus, Fila e Todos com contadores', 'Transferência para atendente ou fila', 'Notas privadas, respostas rápidas e mídia completa'] },
-  { icon: 'message-circle', titulo: 'WhatsApp oficial', texto: 'API oficial da Meta, com a conta e o número da sua empresa.',
-    itens: ['Nerd Services é Tech Provider verificado', 'Campanhas com template aprovado e teto de gasto', 'Ligações de voz pelo WhatsApp no PABX'] },
-  { icon: 'phone', titulo: 'Telefonia em nuvem', texto: 'PABX IP completo, com ramal no navegador ou no aparelho de mesa.',
-    itens: ['Filas com posição e tempo estimado', 'URA de voz, gravação e relatórios', 'Painel ao vivo: escutar, sussurrar, desligar'] },
-  { icon: 'workflow', titulo: 'URA visual', texto: 'Monte o atendimento automático arrastando blocos — sem programar.',
-    itens: ['Simulador antes de publicar', 'Subfluxos reaproveitáveis', 'QR Code de entrada para cada passo'] },
-  { icon: 'kanban', titulo: 'CRM Builder', texto: 'Solicitações com protocolo, setores, prazos em dias úteis e Kanban.',
-    itens: ['Abertura pela URA, pela Inbox ou pelo site', 'PDF anexado e aviso automático ao cliente', 'Alertas de prazo e resumo diário'] },
-  { icon: 'bar-chart', titulo: 'Gestão e relatórios', texto: 'Central por papel, supervisão por equipe e relatórios por área.',
-    itens: ['Telefonia, atendimento e CRM', 'Exportação em Excel e PDF', 'Satisfação (CSAT) e autoatendimento'] },
-];
-
-export const NOVIDADES = [
-  { id: 'tv', icon: 'monitor', tag: 'Operação', titulo: 'Painel de TV', texto: 'Os números da operação em tempo real na TV da sala: fila de espera, atendentes e telefonia, por link seguro e sem login.' },
-  { id: 'inter', icon: 'network', tag: 'Telefonia', titulo: 'Interconexão', texto: 'Duas empresas do mesmo grupo ligando entre si como uma central só: ramal, fila, URA e transferência.' },
-  { id: 'form', icon: 'file-text', tag: 'CRM', titulo: 'Formulário do Site', texto: 'Formulário público ou embutido no seu site que abre a solicitação no CRM com protocolo, prazo e anexos.' },
-  { id: 'idiomas', icon: 'languages', tag: 'Equipe', titulo: '5 idiomas', texto: 'Português, inglês, espanhol, italiano e francês — cada usuário troca na hora.' },
-  { id: 'pausa', icon: 'coffee', tag: 'Equipe', titulo: 'Pausas do atendente', texto: 'Pausa com motivo e limite: em pausa, nem a fila de voz nem a Inbox entregam nada novo. Passou do limite, o supervisor é avisado.' },
-  { id: 'voz', icon: 'mic', tag: 'WhatsApp', titulo: 'Chamada de voz pelo WhatsApp', texto: 'O cliente liga pelo WhatsApp e cai na fila, na URA ou no ramal — com gravação e relatório.' },
+/* Acesso rápido (logo abaixo da abertura): atalhos para as áreas mais procuradas. */
+export const ACESSO = [
+  { href: '#recursos', icon: 'layout-dashboard', titulo: 'OmniNerd', texto: 'Telefone, WhatsApp e chat numa operação só' },
+  { href: '#novo-sac', icon: 'shield-check', titulo: 'Novo SAC', texto: 'Protocolo, metas de tempo e relatório', novo: true },
+  { href: '#saude', icon: 'stethoscope', titulo: 'Saúde', texto: 'Guias, parceiros e médicos para clínicas', novo: true },
+  { href: '#telefonia', icon: 'phone', titulo: 'Telefonia IP', texto: 'Central em nuvem, números e 0800' },
+  { href: '#omninerd-ai', icon: 'sparkles', titulo: 'OmniNerd AI', texto: 'URA que entende, copiloto e IA Supervisor' },
+  { href: '#planos', icon: 'layers', titulo: 'Planos', texto: 'Pacotes e proposta para a sua operação' },
+  { href: '#suporte', icon: 'life-buoy', titulo: 'Suporte', texto: 'Equipe Nerd Services, incluso no serviço' },
+  { href: AGENDAR, icon: 'calendar-clock', titulo: 'Demonstração', texto: 'Agende pelo formulário, sem compromisso' },
 ];
 
 export const AI_ITENS = [
   ['bot', 'URA que entende', 'Texto livre e áudio, com até 30 intenções e confirmação quando há dúvida.'],
-  ['file-text', 'Base de conhecimento', 'Responde só com o conteúdo da sua empresa (PDF, DOCX, TXT), citando a fonte.'],
-  ['sparkles', 'Copiloto do atendente', 'Sugerir, melhorar e resumir — nada é enviado sem o clique do atendente.'],
-  ['heart', 'Humor do cliente', 'Identifica reclamação, elogio ou dúvida e muda a resposta.'],
+  ['file-check', 'Lê documentos', 'Comprovante, boleto e pedido médico viram campos prontos para usar.'],
+  ['file-text', 'Base de conhecimento', 'Responde só com o conteúdo da sua empresa, citando a fonte, e sabe quando passar para a equipe.'],
+  ['sparkles', 'Copiloto do atendente', 'Sugerir, melhorar, resumir e perguntar à base — nada é enviado sem o clique do atendente.'],
+  ['languages', 'Tradução automática', 'Atenda em qualquer idioma, com prévia antes de enviar e glossário da empresa.'],
+  ['workflow', 'Cria a URA', 'Descreva a empresa por texto ou voz e a IA monta o rascunho do fluxo.'],
   ['shield-check', 'LGPD na IA', 'CPF, CNPJ, cartão, e-mail e telefone são mascarados antes de ir para a IA.'],
   ['bar-chart', 'IA Supervisor', 'Relatório semanal da operação com os seus números reais e ações sugeridas.'],
 ];
@@ -103,9 +79,8 @@ export const AI_ITENS = [
 /*
  * Telefonia Nerd Services (conectividade). Regras de comunicação (precos.md):
  * não usar “operadora” nem “STFC”; não citar a tecnologia de base — falar em “central telefônica”.
- * Preço: só o “a partir de” do produto mais barato (plano de número Essencial).
+ * Preço: SOB CONSULTA (Gustavo, 19/11/2026 — o site só exibe o “a partir de R$ 790/mês” do Essencial).
  */
-export const TELEFONIA_A_PARTIR_DE = 59;
 export const TELEFONIA = [
   { icon: 'phone', titulo: 'Números fixos (DID)', texto: 'Número fixo com chamadas simultâneas de entrada e canais de saída ilimitados nacionais.' },
   { icon: 'headphones', titulo: '0800', texto: 'Atendimento gratuito para quem liga, com bilhetagem detalhada e roteamento direto para a sua fila ou URA.' },
@@ -138,7 +113,7 @@ export const DEPOIMENTOS = [
 ];
 
 export const PLANOS = [
-  { nome: 'Essencial', aPartirDe: 790, inclui: '5 usuários', desc: 'A base para atender em todos os canais digitais.',
+  { nome: 'Essencial', aPartirDe: 790, // ÚNICO valor publicado no site inclui: '5 usuários', desc: 'A base para atender em todos os canais digitais.',
     itens: ['Inbox omnichannel', 'URA e fluxos', 'Chat do site e Telegram', 'Relatórios'] },
   { nome: 'Telefonia', inclui: '3 usuários · 20 ramais', desc: 'Essencial + PABX em nuvem.',
     itens: ['Tudo do Essencial', 'PABX em nuvem', 'Filas, URA de voz e gravação'] },
@@ -154,11 +129,14 @@ export const FAQ = [
   ['O número do WhatsApp continua sendo da minha empresa?', 'Sim. Você conecta a sua própria conta oficial do WhatsApp Business (API da Meta). A titularidade, o número e a reputação continuam com a sua empresa — inclusive se um dia sair do OmniNerd.'],
   ['Quanto custam as mensagens do WhatsApp?', 'As conversas são cobradas pela Meta diretamente no cartão da sua empresa, no preço oficial. A Nerd Services cobra apenas a plataforma e o suporte, sem margem sobre o consumo.'],
   ['Preciso trocar meus telefones ou o meu número?', 'Não. A central telefônica do OmniNerd funciona com os aparelhos SIP que você já usa e com o seu número atual (tronco SIP). Se preferir, a própria Nerd Services fornece os números, o 0800 e as rotas de saída. O atendente também pode falar direto pelo navegador, só com um headset.'],
-  ['Como é a contratação?', 'Por pacote — Essencial, Telefonia, Atendimento, Completo ou Completo + Telefonia — com usuários inclusos. Usuários e ramais adicionais seguem uma faixa progressiva (quanto mais, menor o valor), e cada usuário de atendimento já inclui o ramal dele. A implantação inclui URA, configuração dos canais e treinamento da equipe.'],
+  ['Como é a contratação?', 'Por pacote — Essencial, Telefonia, Atendimento, Completo ou Completo + Telefonia — com usuários inclusos. O Essencial começa em R$ 790/mês; os demais pacotes, os módulos, os usuários e ramais adicionais e a implantação são sob consulta, numa proposta montada para a sua operação. Cada usuário de atendimento já inclui o ramal dele, e a implantação inclui URA, configuração dos canais e treinamento da equipe.'],
   ['Já uso outro sistema. Consigo trazer o histórico?', 'Sim. Trazemos contatos, atendimentos e conversas com mídias de plataformas como Digisac, MandeUmZap, Opa Suite, SGA e Poli, com análise antes de importar e sem duplicar. A migração é feita pela nossa equipe na implantação.'],
   ['O OmniNerd consulta o sistema da minha empresa?', 'Sim, com a Consulta externa: a URA busca boletos, títulos e cadastros no banco do seu sistema e responde no WhatsApp. O conector é instalado pela nossa equipe em um comando, com túnel seguro e sem abrir porta no seu servidor.'],
   ['E a LGPD?', 'Sua empresa é a controladora dos dados e a Nerd Services só os trata em nome dela (papel de operador na LGPD): dados isolados por empresa, login individual, registro de ações, backups cifrados, mascaramento antes da IA e um papel de TI que configura o sistema sem ver conversas.'],
   ['O OmniNerd tem aplicativo para celular?', 'Sim. O app OmniNerd para Android já está na Google Play (o de iPhone chega em breve). Baixe o aplicativo, informe o endereço da sua empresa e entre com o seu login — a conta é criada pelo administrador da empresa no painel do OmniNerd.'],
+  ['O OmniNerd deixa a minha empresa em conformidade com o Novo SAC?', 'O OmniNerd auxilia a adequação ao Decreto nº 13.135/2026: protocolo em toda conversa e ligação, conferência da URA ao publicar, relatório com as metas de tempo e avisos ao vivo. A conformidade também depende de como a empresa opera — equipe, horários de atendimento humano e prazos — e deve ser avaliada pelo seu jurídico. As exigências valem para fornecedores de setores regulados; para as demais empresas, são uma boa prática.'],
+  ['O OmniNerd atende clínicas e planos de saúde?', 'Sim. O módulo Saúde emite guias de exame e consulta (até de dentro da conversa do WhatsApp), controla o que cada plano não cobre, deixa o laboratório parceiro validar a guia pelo celular e faz o acerto com parceiros e médicos. É contratado à parte — os valores são sob consulta.'],
+  ['Consigo atender clientes que falam outro idioma?', 'Sim, com o módulo OmniNerd AI: a conversa é traduzida automaticamente na Inbox, o atendente responde no próprio idioma com prévia antes de enviar, e a URA identifica o idioma do cliente para levá-lo à equipe certa.'],
   ['A IA responde qualquer coisa sozinha?', 'A IA responde com base no conteúdo que a sua empresa cadastra e encaminha para um atendente humano quando não tem certeza ou quando o cliente pede. Você decide onde ela atua.'],
 ];
 
@@ -194,4 +172,18 @@ export const CLIENTES = [
   { name: 'T2Web', logo: '/clients/t2web.webp', w: 168, h: 88 },
   { name: 'Total Saúde', logo: '/clients/total-saude.webp', w: 182, h: 60 },
   { name: 'Veloo', logo: '/clients/veloo.webp', w: 224, h: 120 },
+];
+
+/* Sobre a Nerd Services + Suporte (âncoras #sobre e #suporte). Sem promessa de prazo ou percentual. */
+export const SOBRE_PILARES = [
+  ['shield-check', 'Tech Provider da Meta', 'Provedor de tecnologia verificado: o WhatsApp oficial da sua empresa conectado do jeito certo.'],
+  ['phone', 'Telefonia é a nossa origem', 'Além do OmniNerd, fornecemos os números, o 0800 e as rotas de saída — tudo num só contrato.'],
+  ['workflow', 'Implantação pela nossa equipe', 'URA, canais, treinamento da equipe e, quando combinado, a migração do sistema anterior.'],
+  ['code', 'Software próprio', 'Desenvolvemos e operamos o OmniNerd: as novidades chegam a todos os clientes direto no sistema.'],
+];
+export const SUPORTE_ITENS = [
+  '“Pedir suporte” dentro do sistema e o contato fixo “Suporte Nerd Services” no chat interno da equipe.',
+  'De segunda a sexta, das 8h às 18h, com canal urgente para canal parado.',
+  'O técnico só entra no seu ambiente com a faixa “Suporte presente” visível a todos — e todo acesso fica registrado.',
+  'Acompanhamento do contrato pela Nerd Services: franquias, módulos e alertas de uso.',
 ];

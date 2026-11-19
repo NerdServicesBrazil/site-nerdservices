@@ -56,7 +56,8 @@ export function Plataforma() {
   );
 }
 
-/* Planos — os pacotes do catálogo, SEM preço (decisão do Gustavo em 25/10/2026). */
+/* Planos — os pacotes do catálogo, SEM preço (decisão do Gustavo em 25/10/2026).
+ * FATIA 20261119_RECURSOS: só o Essencial mostra “a partir de R$ 790/mês”; o resto é “Sob consulta”. */
 export function Planos() {
   return (
     <section id="planos" className="py-24 scroll-mt-16" aria-labelledby="titulo-planos">
@@ -70,22 +71,24 @@ export function Planos() {
                 <h3 className="font-semibold text-lg leading-tight">{p.nome}</h3>
                 {p.destaque && <span className="badge-new">COM IA</span>}
               </div>
-              {p.aPartirDe && (
-                <p className="mt-3"><span className="text-tx3 text-sm">a partir de</span> <b className="text-2xl font-bold num tracking-tight">R$ {p.aPartirDe.toLocaleString('pt-BR')}</b><span className="text-tx3 text-sm">/mês</span></p>
+              {p.aPartirDe ? (
+                <p className="mt-3"><span className="block text-tx3 text-sm">a partir de</span><span className="whitespace-nowrap"><b className="text-2xl font-bold num tracking-tight">R$ {p.aPartirDe.toLocaleString('pt-BR')}</b><span className="text-tx3 text-sm">/mês</span></span></p>
+              ) : (
+                <p className="mt-3 text-xl font-semibold tracking-tight text-tx2">Sob consulta</p>
               )}
               <p className="mono text-[12px] text-brand-l mt-3">{p.inclui}</p>
               <p className="text-tx2 text-[15px] leading-relaxed mt-3">{p.desc}</p>
               <ul className="mt-4 space-y-2 text-[14px] text-tx2 flex-1">
                 {p.itens.map((t) => <li key={t} className="flex gap-2"><Check />{t}</li>)}
               </ul>
-              <a href={AGENDAR} className={`btn btn-sm mt-6 ${p.destaque ? 'btn-p' : 'btn-s'}`}>Solicitar proposta</a>
+              <a href={AGENDAR} className={`btn btn-sm mt-6 ${p.destaque ? 'btn-p' : 'btn-s'}`}>Pedir orçamento</a>
             </li>
           ))}
         </ul>
         <div className="reveal mt-8 grid gap-3 md:grid-cols-3 text-[15px] text-tx2">
           <p className="flex gap-2"><Check />Usuários e ramais adicionais em faixa progressiva: quanto maior a operação, menor o valor por usuário — e cada usuário de atendimento já inclui o ramal dele.</p>
           <p className="flex gap-2"><Check />Mensagens do WhatsApp pagas direto à Meta, a preço de custo. A conta (WABA) é da sua empresa.</p>
-          <p className="flex gap-2"><Check />Módulos avulsos (Instagram, IA, CRM), migração e conectores: montamos a proposta com você.</p>
+          <p className="flex gap-2"><Check />Módulos (Instagram, OmniNerd AI, CRM, Saúde), usuários e ramais adicionais, implantação, migração e conectores: sob consulta, numa proposta montada com você.</p>
         </div>
       </div>
     </section>

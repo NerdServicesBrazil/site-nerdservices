@@ -9,7 +9,8 @@ import { useEffect } from 'react';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Footer from './components/Footer.jsx';
-import { Canais, Fluxo, Modulos, Telefonia, AppCelular, Novidades, Segmentos } from './sections/Recursos.jsx'; // FATIA 20261110_ANDROID: AppCelular
+import { Telefonia, AppCelular, Segmentos } from './sections/Recursos.jsx'; // FATIA 20261110_ANDROID: AppCelular · FATIA 20261119_RECURSOS: sai o Fluxo
+import { AcessoRapido, Explorador, Destaques, NovoSac, Saude, Sobre } from './sections/Explorador.jsx'; // FATIA 20261119_RECURSOS
 import { OmniAI, Integracoes } from './sections/OmniAI.jsx';
 import { Plataforma, Planos, Prova, Faq, Cta } from './sections/Comercial.jsx';
 import { AGENDA_ORIGEM, AGENDA_FORM } from './data/site.js';
@@ -21,17 +22,19 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <Canais />
-        <Fluxo />
-        <Modulos />
+        <AcessoRapido />
+        <Explorador />
+        <Destaques />
+        <NovoSac />
+        <Saude />
+        <OmniAI />
         <Telefonia />
         <AppCelular />
-        <Novidades />
-        <OmniAI />
         <Integracoes />
         <Segmentos />
         <Plataforma />
         <Planos />
+        <Sobre />
         <Prova />
         <Faq />
         <Cta />
