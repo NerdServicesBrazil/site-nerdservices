@@ -1,6 +1,7 @@
 /*
  * nerdservices.com.br — site institucional, identidade v3 “Camadas” (25/10/2026).
  * Base de marca: padrão Obsidiana do OmniNerd (grafite + verde mineral, laranja só destaque).
+ * FATIA 20261119_CINEMA: a abertura cinematográfica cuida dos próprios efeitos (Hero.jsx).
  * O HTML é pré-renderizado no build (scripts/prerender.mjs): o texto já vem no HTML e o React
  * só “acorda” os efeitos. Efeitos: revelar ao rolar, contadores, inclinação 3D e parallax —
  * todos desligados em prefers-reduced-motion e sem depender de hover no celular.
@@ -72,19 +73,6 @@ function useEfeitos() {
     limpar.push(() => io.disconnect());
 
     if (!reduz && mouse) {
-      // Palco do hero inclina com o mouse
-      const rig = document.getElementById('rig');
-      let raf = 0;
-      const mover = (e) => {
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => {
-          rig?.style.setProperty('--rx', (e.clientX / innerWidth - 0.5).toFixed(3));
-          rig?.style.setProperty('--ry', (e.clientY / innerHeight - 0.5).toFixed(3));
-        });
-      };
-      window.addEventListener('pointermove', mover, { passive: true });
-      limpar.push(() => window.removeEventListener('pointermove', mover));
-
       // Cartões com inclinação 3D leve + brilho seguindo o cursor
       const tilt = (e) => {
         const t = e.target.closest?.('.tilt'); if (!t) return;
@@ -96,12 +84,6 @@ function useEfeitos() {
       document.addEventListener('pointermove', tilt, { passive: true });
       document.addEventListener('pointerout', solta, { passive: true });
       limpar.push(() => { document.removeEventListener('pointermove', tilt); document.removeEventListener('pointerout', solta); });
-
-      // Parallax leve do palco na rolagem
-      const palco = document.getElementById('palco');
-      const rolar = () => { if (scrollY < 900 && palco) palco.style.transform = `translateY(${scrollY * -0.08}px)`; };
-      window.addEventListener('scroll', rolar, { passive: true });
-      limpar.push(() => window.removeEventListener('scroll', rolar));
     }
     return () => limpar.forEach((f) => f());
   }, []);
